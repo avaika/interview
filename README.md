@@ -12,44 +12,44 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
 
 ## Linux
 1. Memory:
-   a. How to check memory on a server? 
-   b. What's the info source for those tool?
-   c. What will happen if we disable swap? Short term and long term.
-   d. How to save a process from OOM?
+    1. How to check memory on a server? 
+    2. What's the info source for those tool?
+    3. What will happen if we disable swap? Short term and long term.
+    4. How to save a process from OOM?
 2. File descriptors:
-   a. Root partition is out of space. How are you going to fix it? 
-   b. apache log ate all the space. How to clean up the space without restart?
-   c. How to find which files are used by process?
+    1. Root partition is out of space. How are you going to fix it? 
+    2. apache log ate all the space. How to clean up the space without restart?
+    3. How to find which files are used by process?
 3. File permissions:
-   a. passwd is able to write data to /etc/shadow without `sudo`. How does it work?
-   b. Please explain `chmod 1777 dir`
-   c. root just did this: `cd ~user; touch file; chmod 000 file`. Can I remove this file as a user and why / why not?
+    1. passwd is able to write data to /etc/shadow without `sudo`. How does it work?
+    2. Please explain `chmod 1777 dir`
+    3. root just did this: `cd ~user; touch file; chmod 000 file`. Can I remove this file as a user and why / why not?
 4. Network: 
-   a. There is no ping between 2 servers. How to find out the root cause?
-   b. How to check whether the port is being used?
-   c. How to redirect a traffic between servers? The more options the better.
-   d. The app is listening to the port, but isn't accessible from remote server. How would you debug?
+    1. There is no ping between 2 servers. How to find out the root cause?
+    2. How to check whether the port is being used?
+    3. How to redirect a traffic between servers? The more options the better.
+    4. The app is listening to the port, but isn't accessible from remote server. How would you debug?
 5. Processes:
-   a. Is there a way to ignore -9 signal?
-   b. How to allow other users to manage a specific process for your user without being root?
+    1. Is there a way to ignore -9 signal?
+    2. How to allow other users to manage a specific process for your user without being root?
 6. I see load average value for last 5 minutes is 14. Is it good or bad?
 7. Why do we need ssh fingerprints?
 
 ## Scripting (bash/python)
 1. bash
-   a. `ls *tmp | while read file; do rm $file && echo "removed $file" >> log || echo "failed to remove $file" >> log; done` -- What might go wrong here?
-   b. Difference `. ./file` vs `./file` 
-   c. `echo "$SHELL"` vs `echo '$SHELL'`
-   d. Why `str` is empty second time: `echo test | while read str; do a=$str; echo a=$a; done; echo a=$a`? (if while is blamed show `while read str; do a=$str; echo a=$a; done < <(echo test); echo a=$a` to prove `while` is innocent :) )
-   e. What's to get script path from inside the script?
-   f. #fun: `mkdir new; cd new; touch a; ls > b; cat b;` => what will happen and why?
+    1. `ls *tmp | while read file; do rm $file && echo "removed $file" >> log || echo "failed to remove $file" >> log; done` -- What might go wrong here?
+    2. Difference `. ./file` vs `./file` 
+    3. `echo "$SHELL"` vs `echo '$SHELL'`
+    4. Why `str` is empty second time: `echo test | while read str; do a=$str; echo a=$a; done; echo a=$a`? (if while is blamed show `while read str; do a=$str; echo a=$a; done < <(echo test); echo a=$a` to prove `while` is innocent :) )
+    5. What's to get script path from inside the script?
+    6. #fun: `mkdir new; cd new; touch a; ls > b; cat b;` => what will happen and why?
 2. python
-   a. How to debug a python script?
-   b. When and why do we need `__init__.py`?
-   c. What's decorator?
-   d. `f = lambda x: 2*x` => what will happen here? is it really worth to use lambdas?
-   e. Any experience with frameworks?
-   f. #fun `True, True, True == (True, True, True)` => why it returns `True, True, False`? :)
+    1. How to debug a python script?
+    2. When and why do we need `__init__.py`?
+    3. What's decorator?
+    4. `f = lambda x: 2*x` => what will happen here? is it really worth to use lambdas?
+    5. Any experience with frameworks?
+    6. #fun `True, True, True == (True, True, True)` => why it returns `True, True, False`? :)
 
 ## Ansible
 0. You have 100 machines. How would you install `nginx` on every one of them? (hope you won't hear about bash loop here :) )
