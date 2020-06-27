@@ -17,7 +17,7 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
     3. How to save a process from OOM?
 2. File descriptors:
     1. Root partition is out of space. How are you going to fix it? 
-    2. apache log ate all the space. How to clean up the space without restart?
+    2. apache log ate all the space. How to clean up the space without apache restart?
     3. How to find which files are used by process?
 3. File permissions:
     1. passwd is able to write data to `-rw-r----- 1 root shadow /etc/shadow` without `sudo`. How does it work?
@@ -45,10 +45,10 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
 2. python
     1. How to debug a python script?
     2. When and why do we need `__init__.py`?
-    3. What's decorator?
+    3. Why do we need a decorator?
     4. `f = lambda x: 2*x` => what will happen here? is it really worth to use lambdas?
     5. Any experience with frameworks?
-    6. #fun: `True, True, True == (True, True, True)` => why it returns `True, True, False`? :)
+    6. #fun: `True, True, True == (True, True, True)` => why deos it return `(True, True, False)`? :)
 
 ## Ansible
 0. You have 100 machines. How would you install `nginx` on every one of them? (hope you won't hear about bash loop here :) )
@@ -73,7 +73,7 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
 ## Docker
 1. #fun: How to use a different kernel version inside docker container?
 2. How does docker affect aplication performance?
-3. There's a nice Dockerfile. Any ideas for optimizations?
+3. There's a nice (oh my eyes) Dockerfile. Any ideas for optimizations?
 ```
 FROM ubuntu
 
@@ -92,7 +92,7 @@ RUN python3 /app/manage.py collectstatic
 
 CMD ['/bin/bash /app/run.sh']
 ```
-4. Can I have a conteiner with multiple processes inside? Pros / cons.
+4. Can I have a container with multiple processes inside? Pros / cons.
 5. What is docker capabilities?
 ```
 docker run -it bash
