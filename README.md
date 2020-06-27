@@ -28,7 +28,7 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
 4. Network: 
     1. There is no ping between 2 servers. How to find out the root cause?
     2. How to check whether the port is being used?
-    3. How to redirect a traffic between servers? The more options the better.
+    3. How to redirect traffic between servers? The more options the better.
     4. The app is listening to the port, but isn't accessible from remote server. How would you debug?
 5. Processes:
     1. Is there a way to ignore -9 signal?
@@ -55,7 +55,7 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
 ## Ansible
 0. You have 100 machines. How would you install `nginx` on every one of them? (hope you won't hear about bash loop here :) )
 1. roles vs playbooks. What's the difference?
-2. You have a role to create database user and set a password. How to store the creds in a safe way?
+2. You have a role to create database user and to set a password. How to store the creds in a safe way?
 3. How to speed up ansible connection?
 4. Please explain this template:
 ```
@@ -94,8 +94,8 @@ RUN python3 /app/manage.py collectstatic
 
 CMD ['/bin/bash /app/run.sh']
 ```
-4. Can I have a container with multiple processes inside? Pros / cons.
-5. What is docker capabilities?
+4. Docker container with multiple processes inside. What are pros & cons?
+5. When do we need docker capabilities?
 ```
 docker run -it bash
 apk add e2fsprogs-extra
@@ -104,20 +104,20 @@ chattr +i test
 
 docker run --cap-add LINUX_IMMUTABLE -it bash
 ```
-6. docker alternatives
+6. docker alternatives. Why / why not?
 
 ## K8S
-1. #fun: How to start containers from a single pod be running on different nodes?
+1. #fun: How to run containers from a single pod on different nodes?
 2. Operators? Why and why not?
 3. helm vs kapitan vs kustomize vs etc?
 4. How to access external database in k8s?
-5. What happens when node goes down?
+5. What happens when a node goes down?
 6. Application pod isn't able to access database pod. How to debug?
 7. How to persist data in k8s?
 8. I'm too lazy to put more questions.
 
 ## CI/CD
-1. You have java app source code. How would you build CI/CD pipeline?
+1. You have a java app source code. How would you build CI/CD pipeline?
 
 ## Databases
 1. You have database replication. How would you ensure it's still working?
