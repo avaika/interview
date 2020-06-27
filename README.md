@@ -4,9 +4,11 @@
 One day I thought it'd be nice to write down interview questions. I'm old and can't keep everything in my head already. So here we are.
 
 ## Any hints?
-1. Do not ask the questions from this list. In most cases it's enough to go thorugh just some.
-2. If candidates doesn't seem good enough, don't torture both of you. Feel free to end it as soon as you have an idea about the level.
+1. Do not ask all the questions from this list. In most cases it's enough to go through just some.
+2. Feel free to end the interview as soon as you have a good idea about candidate level. There's no need to torture both of you.
 3. Please please try to avoid questions like 'What is X?'. Ask 'How to do Y?' instead. This way is more fun :)
+4. Questions marked with `#fun:` are tricky. I do not expect a correct answer in most cases, but it's fun to try to resolve the issue at least.
+5. It's very helpful to share command line and show code snippets to candidate. Use this nice feature.
 
 # The questions
 
