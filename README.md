@@ -22,9 +22,9 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
     2. apache log ate all the space. How to clean up the space without apache restart?
     3. How to find which files are used by process?
 3. File permissions:
-    1. passwd is able to write data to `-rw-r----- 1 root shadow /etc/shadow` without `sudo`. How does it work?
+    1. passwd is able to write data to `-rw-r----- 1 root shadow /etc/shadow` from a user without `sudo`. How does it work?
     2. What will be the permission after `chmod 1777 dir`?
-    3. #fun: root just did this: `cd ~user; touch file; chmod 000 file`. Can I remove this file as a user and why / why not?
+    3. #fun: root just did this: `cd ~user; touch file; chmod 000 file`. Can I remove the `file` as a user and why / why not?
 4. Network: 
     1. There is no ping between 2 servers. How to find out the root cause?
     2. How to check whether the port is being used?
@@ -33,7 +33,7 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
 5. Processes:
     1. Is there a way to ignore -9 signal?
     2. How to allow other users to manage a specific process for your user without being root?
-6. I see load average value for last 5 minutes is 14. Is it good or bad?
+6. Load average value is 14. Is it good or bad?
 7. Why do we need ssh fingerprints?
 
 ## Scripting (bash/python)
@@ -41,8 +41,8 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
     1. `ls *tmp | while read file; do rm $file && echo "removed $file" >> log || echo "failed to remove $file" >> log; done` -- What might go wrong here?
     2. Difference `. ./file` vs `./file` 
     3. `echo "$SHELL"` vs `echo '$SHELL'`
-    4. Why `str` is empty second time: `echo test | while read str; do a=$str; echo a=$a; done; echo a=$a`? (if while is blamed show `while read str; do a=$str; echo a=$a; done < <(echo test); echo a=$a` to prove `while` is innocent :) )
-    5. What's to get script path from inside the script?
+    4. Why `str` is empty with second `echo`: `echo test | while read str; do a=$str; echo a=$a; done; echo a=$a`? (if `while` is blamed show `while read str; do a=$str; echo a=$a; done < <(echo test); echo a=$a` to prove `while` is innocent :) )
+    5. How to get script path from inside the script?
     6. #fun: `mkdir new; cd new; touch a; ls > b; cat b;` => what will happen and why?
 2. python
     1. How to debug a python script?
@@ -120,10 +120,10 @@ docker run --cap-add LINUX_IMMUTABLE -it bash
 1. You have a java app source code. How would you build CI/CD pipeline?
 
 ## Databases
-1. You have database replication. How would you ensure it's still working?
+1. How to ensure database replication is still alive? How to monitor it?
 
 ## Monitoring
-1. How to monitor stuff?
+1. Which monitoring system do you prefer and why?
 
 ## ELK
 1. How to scale up and down elasticsearch cluster? Underwater stones?
