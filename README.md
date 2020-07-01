@@ -37,7 +37,6 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
     2. How to allow other users to manage a specific process for your user without being root?
     3. What is load avg and how to interpritate it?
     4. How to quotate resources for process?
-6. Load average value is 14. Is it good or bad?
 7. Why do we need ssh fingerprints?
 
 ## Scripting (bash/python)
@@ -78,9 +77,9 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
 
 ## Docker
 1. #fun: How to use a different kernel version inside docker container?
-    1. Why docker still running on Windows and MacOS within VM. Which linux kernel features are required for docker.
-2. How does docker affect aplication performance?
-3. There's a nice (oh my eyes) Dockerfile. Any ideas for optimizations?
+2. Why docker still running on Windows and MacOS within VM. Which linux kernel features are required for docker.
+3. How does docker affect aplication performance?
+4. There's a nice (oh my eyes) Dockerfile. Any ideas for optimizations?
 ```
 FROM ubuntu
 
@@ -99,8 +98,8 @@ RUN python3 /app/manage.py collectstatic
 
 CMD ['/bin/bash /app/run.sh']
 ```
-4. Docker container with multiple processes inside. What are pros & cons?
-5. When do we need docker capabilities?
+5. Docker container with multiple processes inside. What are pros & cons?
+6. When do we need docker capabilities?
 ```
 docker run -it bash
 apk add e2fsprogs-extra
@@ -109,7 +108,7 @@ chattr +i test
 
 docker run --cap-add LINUX_IMMUTABLE -it bash
 ```
-6. docker alternatives. Why / why not?
+7. docker alternatives. Why / why not?
 
 ## K8S
 1. #fun: How to run containers from a single pod on different nodes?
@@ -119,8 +118,7 @@ docker run --cap-add LINUX_IMMUTABLE -it bash
 5. What happens when a node goes down?
 6. Application pod isn't able to access database pod. How to debug?
 7. How to persist data in k8s?
-8. I'm too lazy to put more questions.
-9. How we can recover etcd stucked in quorum election?
+8. How we can recover etcd stucked in quorum election?
 
 ## CI/CD
 1. You have a java app source code. How would you build CI/CD pipeline?
@@ -143,7 +141,8 @@ docker run --cap-add LINUX_IMMUTABLE -it bash
 3. Describe process of `ping ya.ru` in details.
 
 ## GIT
-1. How we can revert lates merge request?
+1. How we can revert the latest merge request?
+2. What's difference between `rebase` and `cherry-pick`?
 
 # Fun things I've learned during interviews:
 1. ping is a client-server application
