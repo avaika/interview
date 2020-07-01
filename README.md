@@ -18,9 +18,11 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
     2. What will happen if we disable swap? Short term and long term.
     3. How to save a process from OOM?
 2. File descriptors:
-    1. Root partition is out of space. How are you going to fix it? 
+    1. Root partition is out of space. How are you going to fix it?
     2. apache log ate all the space. How to clean up the space without apache restart?
     3. How to find which files are used by process?
+    4. `df -h` show a lot of unused disk space, however any file creation operation fails with out of space error. What happened, how to fix?
+    5. How to delete 1kk files fast w/o removing root directory?
 3. File permissions:
     1. passwd is able to write data to `-rw-r----- 1 root shadow /etc/shadow` from a user without `sudo`. How does it work?
     2. What will be the permission after `chmod 1777 dir`?
@@ -33,6 +35,8 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
 5. Processes:
     1. Is there a way to ignore -9 signal?
     2. How to allow other users to manage a specific process for your user without being root?
+    3. What is load avg and how to interpritate it?
+    4. How to quotate resources for process?
 6. Load average value is 14. Is it good or bad?
 7. Why do we need ssh fingerprints?
 
@@ -74,6 +78,7 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
 
 ## Docker
 1. #fun: How to use a different kernel version inside docker container?
+    1. Why docker still running on Windows and MacOS within VM. Which linux kernel features are required for docker.
 2. How does docker affect aplication performance?
 3. There's a nice (oh my eyes) Dockerfile. Any ideas for optimizations?
 ```
@@ -115,6 +120,7 @@ docker run --cap-add LINUX_IMMUTABLE -it bash
 6. Application pod isn't able to access database pod. How to debug?
 7. How to persist data in k8s?
 8. I'm too lazy to put more questions.
+9. How we can recover etcd stucked in quorum election?
 
 ## CI/CD
 1. You have a java app source code. How would you build CI/CD pipeline?
@@ -124,11 +130,20 @@ docker run --cap-add LINUX_IMMUTABLE -it bash
 
 ## Monitoring
 1. Which monitoring system do you prefer and why?
+2. Which monitoring system you will choose to monitor 1 year trends and why?
 
 ## ELK
 1. How to scale up and down elasticsearch cluster? Underwater stones?
 2. Index rotation?
 3. Alternatives for log collection?
+
+## Networks
+1. Main differences between tcp and udp.
+2. Main differences between nat and masquarade in iptables notation.
+3. Describe process of `ping ya.ru` in details.
+
+## GIT
+1. How we can revert lates merge request?
 
 # Fun things I've learned during interviews:
 1. ping is a client-server application
