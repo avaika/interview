@@ -42,9 +42,9 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
 
 ## Scripting (bash/python)
 1. bash
-    1. `ls *tmp | while read file; do rm $file && echo 'removed $file' >> log || echo "failed to remove $file" >> log; done` -- What might go wrong here?
-    2. Difference `. ./file` vs `./file` 
-    3. How to get exit status?
+    1. `ls *tmp | while read file; do rm $file && echo 'removed $file' >> log || echo "failed to remove $file" >> log; done` -- what might go wrong here?
+    2. Difference `. ./file` vs `./file`
+    3. `#!`, `$?`, `$1` `##`, `$$`, `$!` -- when those are needed?
     4. Why `str` is empty with second `echo`: `echo test | while read str; do a=$str; echo a=$a; done; echo a=$a`? (if `while` is blamed show `while read str; do a=$str; echo a=$a; done < <(echo test); echo a=$a` to prove `while` is innocent :) )
     5. #fun: `mkdir new; cd new; touch a; ls > b; cat b;` => what will happen and why?
 2. python
@@ -65,7 +65,7 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
 {% for server in servers -%}
   {% set serverloop = loop %}
   {%- for ip in server.ips|slice(3) %}
-    allow {{ ip.ip }};  ## {{ serverloop.index }}-{{ loop.index }}
+    allow {{ ip.ip }};  ## {{ server }} // {{ serverloop.index }}
   {%- endfor %}
 {% else %}
     allow 127.0.0.1;
@@ -119,6 +119,7 @@ docker run --cap-add LINUX_IMMUTABLE -it bash
 6. Application pod isn't able to access database pod. How to debug?
 7. How to persist data in k8s?
 8. How we can recover etcd stucked in quorum election?
+9. What's the difference between liveness / readiness / startup probes in k8s?
 
 ## CI/CD
 1. You have a java app source code. How would you build CI/CD pipeline?
