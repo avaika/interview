@@ -35,20 +35,18 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
 5. Processes:
     1. Is there a way to ignore -9 signal?
     2. How to allow other users to manage a specific process for your user without being root?
-    3. What is load average and how to interpritate it?
+    3. load average. Is 14 value good or bad? And why?
     4. How to quotate resources for process?
     5. How to launch process via SSH and make the process survive SSH session disconnect?
 7. Why do we need ssh fingerprints?
 
 ## Scripting (bash/python)
 1. bash
-    1. `ls *tmp | while read file; do rm $file && echo "removed $file" >> log || echo "failed to remove $file" >> log; done` -- What might go wrong here?
+    1. `ls *tmp | while read file; do rm $file && echo 'removed $file' >> log || echo "failed to remove $file" >> log; done` -- What might go wrong here?
     2. Difference `. ./file` vs `./file` 
-    3. `echo "$SHELL"` vs `echo '$SHELL'`
-    4. How to get script path from inside the script?
-    5. How to get exit status?
-    6. Why `str` is empty with second `echo`: `echo test | while read str; do a=$str; echo a=$a; done; echo a=$a`? (if `while` is blamed show `while read str; do a=$str; echo a=$a; done < <(echo test); echo a=$a` to prove `while` is innocent :) )
-    7. #fun: `mkdir new; cd new; touch a; ls > b; cat b;` => what will happen and why?
+    3. How to get exit status?
+    4. Why `str` is empty with second `echo`: `echo test | while read str; do a=$str; echo a=$a; done; echo a=$a`? (if `while` is blamed show `while read str; do a=$str; echo a=$a; done < <(echo test); echo a=$a` to prove `while` is innocent :) )
+    5. #fun: `mkdir new; cd new; touch a; ls > b; cat b;` => what will happen and why?
 2. python
     1. How to debug a python script?
     2. When and why do we need `__init__.py`?
@@ -80,7 +78,7 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
 ## Docker
 1. #fun: How to use a different kernel version inside docker container?
 2. Why docker still running on Windows and MacOS within VM. Which linux kernel features are required for docker.
-3. How does docker affect aplication performance?
+3. How does docker affect application performance?
 4. There's a nice (oh my eyes) Dockerfile. Any ideas for optimizations?
 ```
 FROM ubuntu
