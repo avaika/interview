@@ -149,3 +149,4 @@ docker run --cap-add LINUX_IMMUTABLE -it bash
 1. ping is a client-server application
 2. bash has garbage collector
 3. If you want to check whether the file is used by process or not, you need to remove the file. If it is used, the system won't let you remove it :)
+4. docker improves application performance, as there's only one process inside container and no other processes try to get away resources.
