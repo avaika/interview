@@ -44,7 +44,7 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
 1. bash
     1. `ls *tmp | while read file; do rm $file && echo 'removed $file' >> log || echo "failed to remove $file" >> log; done` -- what might go wrong here?
     2. Difference `. ./file` vs `./file`
-    3. `#!`, `$?`, `$1` `##`, `$$`, `$!` -- when those are needed?
+    3. `#!`, `$?`, `$1`, `##`, `$$`, `$!` -- when those are needed?
     4. Why `str` is empty with second `echo`: `echo test | while read str; do a=$str; echo a=$a; done; echo a=$a`? (if `while` is blamed show `while read str; do a=$str; echo a=$a; done < <(echo test); echo a=$a` to prove `while` is innocent :) )
     5. #fun: `mkdir new; cd new; touch a; ls > b; cat b;` => what will happen and why?
 2. python
@@ -148,4 +148,4 @@ docker run --cap-add LINUX_IMMUTABLE -it bash
 # Fun things I've learned during interviews:
 1. ping is a client-server application
 2. bash has garbage collector
-3. passwd has a daemon to update `/etc/shadow` password hash
+3. If you want to check whether the file is used by process or not, you need to remove the file. If it is used, the system won't let you remove it :)
