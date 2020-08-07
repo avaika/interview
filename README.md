@@ -42,11 +42,11 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
 
 ## Scripting (bash/python)
 1. bash
-    1. `ls *tmp | while read file; do rm $file && echo 'removed $file' >> log || echo "failed to remove $file" >> log; done` -- what might go wrong here?
+    1. `ls *tmp | while read file; do rm $file && echo 'removed $file' >> log.tmp || echo "failed to remove $file" > log.tmp; done` -- what might go wrong here?
     2. Difference `. ./file` vs `./file`
     3. `#!`, `$?`, `$1`, `##`, `$$`, `$!` -- when those are needed?
     4. Why `str` is empty with second `echo`: `echo test | while read str; do a=$str; echo a=$a; done; echo a=$a`? (if `while` is blamed show `while read str; do a=$str; echo a=$a; done < <(echo test); echo a=$a` to prove `while` is innocent :) )
-    5. #fun: `mkdir new; cd new; touch a; ls > b; cat b;` => what will happen and why?
+    5. #fun: `mkdir new; cd new; touch a; ls > b; cat b;` => what will be the output and why?
 2. python
     1. How to debug a python script?
     2. When and why do we need `__init__.py`?
@@ -62,10 +62,9 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
 3. How to speed up ansible connection?
 4. Please explain this template:
 ```
-{% for server in servers -%}
-  {% set serverloop = loop %}
+{% for server in servers %}
   {%- for ip in server.ips|slice(3) %}
-    allow {{ ip.ip }};  ## {{ server }} // {{ serverloop.index }}
+    allow {{ ip }};
   {%- endfor %}
 {% else %}
     allow 127.0.0.1;
