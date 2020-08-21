@@ -88,10 +88,11 @@ ADD . /app/
 RUN apt-get update 
 RUN apt-get install -y git
 RUN apt-get install -y build-essential
-RUN apt-get install -y python3-dev
-RUN apt-get install -y python3-pip
+RUN apt-get install -y python3-dev python3-pip
 
 RUN pip3 install -r /app/requirements.txt
+
+RUN apt-get purge -y python3-dev build-essential
 
 RUN python3 /app/manage.py collectstatic
 
