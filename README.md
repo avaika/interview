@@ -47,6 +47,7 @@ One day I thought it'd be nice to write down interview questions. I'm old and ca
     3. `#!`, `$?`, `$1`, `##`, `$$`, `$!` -- when those are needed?
     4. Why `str` is empty with second `echo`: `echo test | while read str; do a=$str; echo a=$a; done; echo a=$a`? (if `while` is blamed show `while read str; do a=$str; echo a=$a; done < <(echo test); echo a=$a` to prove `while` is innocent :) )
     5. #fun: `mkdir new; cd new; touch a; ls > b; cat b;` => what will be the output and why?
+    6. How to enable debug mode in `bash`?
 2. python
     1. How to debug a python script?
     2. When and why do we need `__init__.py`?
