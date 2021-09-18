@@ -4,50 +4,54 @@
 One day I thought it'd be nice to write down interview questions. I'm old and can't keep everything in my head already. So here we are.
 
 ## Any hints?
-1. Do not ask all the questions from this list. In most cases it's enough to go through just some.
+1. Do not ask all the questions from this list. In most cases it's enough to go through just some of them.
 2. Feel free to end the interview as soon as you have a good idea about candidate level. There's no need to torture both of you.
-3. Please please try to avoid questions like 'What is X?'. Ask 'How to do Y?' instead. This way is more fun :)
-4. Questions marked with `#fun:` are tricky. I do not expect a correct answer in most cases, but it's fun to try to resolve the issue at least.
-5. It's very helpful to share command line and show code snippets to candidate. Use this nice feature.
+3. Please please try to avoid questions like 'What is X?'. Ask 'How to do Y?' instead. This way is way more fun. And actually gives you a better impression of how candidate understands the technology.
+4. Questions marked with `#fun:` are mostly for fun in the first place, cause might be misleading or confusing for the candidate. Don't judge too hard based on this answers (unless it's a complete nonsense)
+5. It might be helpful to share a screen with command line and show code snippets to candidate.
 
 # The questions
 
 ## Linux
-1. Memory:
+1. OS Processes:
+    1. Can process survive `kill -9` in Linux system?
+    2. `uptime` returns load average value as 14. Is it high or low? Should I worry about it?
+    3. How to quotate resources for process?
+    4. How to launch process via SSH and make the process survive SSH session disconnect?
+    5. How to allow other users to manage a specific process for your user without being root?
+2. Memory:
     1. How `free`, `htop` and other guys know how much memory is consumed?
     2. What will happen if we disable swap? Short term and long term.
     3. How to save a process from OOM?
-2. File descriptors:
+3. File descriptors:
     1. Root partition is out of space. How are you going to fix it?
     2. apache log ate all the space. How to clean up the space without apache restart?
-    3. How to find which files are used by process?
-    4. `df -h` show a lot of unused disk space, however any file creation operation fails with out of space error. What happened, how to fix?
-    5. How to delete 1kk files fast w/o removing root directory?
+    3. SA accidentally removed apache log file, but the daemon is still running. Is there a way to restore the file?
+    4. How to find which files are used by process?
+    5. `df -h` show a lot of unused disk space, however any file creation operation fails with out of space error. What happened, how to fix?
+    6. How to delete 1kk files fast w/o removing root directory?
+    7. What is the difference between symlinks & hard links?
 3. File permissions:
     1. passwd is able to write data to `-rw-r----- 1 root shadow /etc/shadow` from a user without `sudo`. How does it work?
     2. What will be the permission after `chmod 1777 dir`?
-    3. #fun: root just did this: `cd ~user; touch file; chmod 000 file`. Can I remove the `file` as a user and why / why not?
+    3. If I will change permission for a file with multiple hardlinks, does it affect all of them or just one?
+    4. #fun: root just did this: `cd ~user; touch file; chmod 000 file`. Can I remove the `file` as a user and why / why not?
 4. Network: 
     1. There is no ping between 2 servers. How to find out the root cause?
     2. How to check whether the port is being used?
     3. How to redirect traffic between servers? The more options the better.
     4. The app is listening to the port, but isn't accessible from remote server. How would you debug?
-5. Processes:
-    1. Is there a way to ignore -9 signal?
-    2. How to allow other users to manage a specific process for your user without being root?
-    3. load average. Is 14 value good or bad? And why?
-    4. How to quotate resources for process?
-    5. How to launch process via SSH and make the process survive SSH session disconnect?
-7. Why do we need ssh fingerprints?
+5. Why do we need ssh fingerprints?
 
 ## Scripting (bash/python)
 1. bash
-    1. `ls *tmp | while read file; do rm $file && echo 'removed $file' >> log.tmp || echo "failed to remove $file" > log.tmp; done` -- what might go wrong here?
-    2. Difference `. ./file` vs `./file`
-    3. `#!`, `$?`, `$1`, `##`, `$$`, `$!` -- when those are needed?
-    4. Why `str` is empty with second `echo`: `echo test | while read str; do a=$str; echo a=$a; done; echo a=$a`? (if `while` is blamed show `while read str; do a=$str; echo a=$a; done < <(echo test); echo a=$a` to prove `while` is innocent :) )
-    5. #fun: `mkdir new; cd new; touch a; ls > b; cat b;` => what will be the output and why?
-    6. How to enable debug mode in `bash`?
+    1. How to debug a shell script?
+    2. What's a difference between `. ./file` vs `./file`?
+    3. `ls *tmp | while read file; do rm $file && echo 'removed $file' >> log.tmp || echo "failed to remove $file" > log.tmp; done` -- what might go wrong here?
+    4. `#!`, `$?`, `$1`, `##`, `$$`, `$!` -- when those are needed?
+    5. Why `str` is empty with second `echo`: `echo test | while read str; do a=$str; echo a=$a; done; echo a=$a`? (if `while` is blamed show `while read str; do a=$str; echo a=$a; done < <(echo test); echo a=$a` to prove `while` is innocent :) )
+    6. #fun: `mkdir new; cd new; touch a; ls > b; cat b;` => what will be the output and why?
+    7. `failure | cat` returns exit code 0. Is there a way to catch the exception from `failure`?
 2. python
     1. How to debug a python script?
     2. When and why do we need `__init__.py`?
