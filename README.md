@@ -1,13 +1,13 @@
 # Interview hell
 
 ## What's this?
-One day I thought it'd be nice to write down some interview questions. I'm old and can't keep everything in my head already. So here we are.
+One day I thought it'd be nice to write down some interview questions. I'm old and can't keep everything in my head anymore. So here we are.
 
 ## Any hints?
 1. Do not ask all the questions from this list. In most cases it's enough to go through just some of them.
 2. Feel free to end the interview as soon as you have a good idea about candidate level. There's no need to torture both of you.
-3. Please please try to avoid questions like 'What is X?'. Ask 'How to do Y?' instead. This way is way more fun. And actually gives you a better impression of how candidate understands the technology.
-4. Questions marked with `#fun:` are mostly for fun in the first place, cause might be misleading or confusing for the candidate. Don't judge too hard based on this answers (unless it's a complete nonsense)
+3. Please please try to avoid questions like 'What is X?'. Ask 'How to do Y?' instead. This is way more fun. And actually gives you a better impression of how candidate understands the technology.
+4. Questions marked with `#fun:` are mostly for fun in the first place, cause might be misleading or confusing for the candidate. Don't judge too hard based on these answers (unless it's a complete nonsense)
 5. It might be helpful to share a screen with command line and show code snippets to candidate.
 6. The scenario questions below are intentionally open-ended. There's no single right answer. Steer the conversation with follow-ups based on what the candidate says ("what if the DB is 2TB?", "what if there's no staging?"). This makes it nearly impossible to prepare a canned answer.
 
@@ -108,9 +108,9 @@ These are more specific technical questions. Good for gauging hands-on experienc
     3. How to save a process from OOM?
 3. File descriptors:
     1. Root partition is out of space. How are you going to fix it?
-    2. nginx log ate all the space. How to clean up the space without apache restart?
-    3. SA accidentally removed apache log file, but the daemon is still running. Is there a way to restore the file?
-    4. `df -h` show a lot of unused disk space, however any file creation operation fails with out of space error. What happened, how to fix?
+    2. nginx log ate all the space. How to clean up the space without nginx restart?
+    3. Ops accidentally removed apache log file, but the daemon is still running. Is there a way to restore the file?
+    4. `df -h` shows a lot of unused disk space, however any file creation operation fails with out of space error. What happened, how to fix?
     5. How to delete 1kk files fast w/o removing root directory?
     6. What is the difference between symlinks & hard links?
 3. File permissions:
@@ -130,7 +130,7 @@ These are more specific technical questions. Good for gauging hands-on experienc
     2. What's a difference between `. ./file` vs `./file`?
     3. `ls *tmp | while read file; do rm $file && echo 'removed $file' >> log.tmp || echo "failed to remove $file" > log.tmp; done` -- what might go wrong here?
     4. `#!`, `$?`, `$1`, `##`, `$$`, `$!` -- when those are needed?
-    5. Why `str` is empty with second `echo`: `echo test | while read str; do a=$str; echo a=$a; done; echo a=$a`? (if `while` is blamed show `while read str; do a=$str; echo a=$a; done < <(echo test); echo a=$a` to prove `while` is innocent :) )
+    5. Why is `str` empty with the second `echo`: `echo test | while read str; do a=$str; echo a=$a; done; echo a=$a`? (if `while` is blamed show `while read str; do a=$str; echo a=$a; done < <(echo test); echo a=$a` to prove `while` is innocent :) )
     6. #fun: `mkdir new; cd new; touch a; ls > b; cat b;` => what will be the output and why?
     7. `failure | cat` returns exit code 0. Is there a way to catch the exception from `failure`?
 2. python
@@ -172,8 +172,8 @@ CMD ['/bin/bash', '/app/run.sh']
 
 ## Networks
 1. Main differences between tcp and udp.
-2. Main differences between nat and masquarade in iptables notation.
-3. Describe process of `ping ya.ru` in details.
+2. Main differences between nat and masquerade in iptables notation.
+3. Describe process of `ping ddg.co` in details.
 
 ## GIT
 1. How we can revert the latest merge request?
@@ -185,4 +185,4 @@ CMD ['/bin/bash', '/app/run.sh']
 1. ping is a client-server application
 2. bash has jvm-like garbage collector
 3. If you want to check whether the file is used by process or not, you need to remove the file. If it is used, the system won't let you remove it :)
-4. docker improves application performance, as there's only one process inside container and no other processes try to get away the resources.
+4. docker improves application performance, as there's only one process inside container and no other processes compete for the resources.
